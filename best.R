@@ -11,10 +11,10 @@ best<-function(state,outcome){
      if(length(find)==0){
           stop("invalid outcome")
      }
-     oc<-data.frame(Hospital_Name=oc[,2],out=oc[,find])
-     oc<-oc[!oc$out=="Not Available",]
-     oc<-oc[as.numeric(oc$out)==min(as.numeric(oc$out)),]
-     min(oc$Hospital_Name)
+     oc<-oc[c(2,find)]
+     oc<-oc[!oc[,2]=="Not Available",]
+     oc<-oc[as.numeric(oc[,2])==min(as.numeric(oc[,2])),]
+     min(oc[,1])
           
      
 }
